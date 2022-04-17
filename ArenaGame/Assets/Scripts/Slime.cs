@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
-public class Slime : MonoBehaviour
+public class Slime : Enemy
 {
     private Transform target;
  

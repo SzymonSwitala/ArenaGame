@@ -53,6 +53,15 @@ TextureImporter:
   - first:
       213: 5033880131319298381
     second: Shadow
+  - first:
+      213: 7470323926208519351
+    second: Slimeball
+  - first:
+      213: -8547006882314900296
+    second: HealthBarBorder
+  - first:
+      213: -7121364002729366432
+    second: HealthBar
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -498,7 +507,7 @@ TextureImporter:
         width: 10
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,6 +515,69 @@ TextureImporter:
       bones: []
       spriteID: d49fe2d0f4febd540800000000000000
       internalID: 5033880131319298381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimeball
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bc92ca080ceba760800000000000000
+      internalID: 7470323926208519351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBarBorder
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 250
+        width: 48
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc2dc6468ee26980800000000000000
+      internalID: -8547006882314900296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBar
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 243
+        width: 48
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06cef0d8b25db2d90800000000000000
+      internalID: -7121364002729366432
       vertices: []
       indices: 
       edges: []

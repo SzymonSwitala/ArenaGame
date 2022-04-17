@@ -34,6 +34,10 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
+        if (collision.tag == "Enemy")
+        {
+            collision.GetComponent<Enemy>().GetDamage(1);
+        }
         Instantiate(hitEffect,transform.position,transform.rotation);
         DisableProjectile();
     }
