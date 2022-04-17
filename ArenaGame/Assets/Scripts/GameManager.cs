@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         }
     }
     public Timer timer;
+    public Player player;
 
     [SerializeField] private TextMeshProUGUI timerText;
     private void Start()

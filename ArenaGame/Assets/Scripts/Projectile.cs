@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField] private float speed;
+    [SerializeField] private GameObject hitEffect;
     
 
    
@@ -33,6 +34,7 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
+        Instantiate(hitEffect,transform.position,transform.rotation);
         DisableProjectile();
     }
 

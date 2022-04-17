@@ -88,10 +88,10 @@ TextureImporter:
     second: Carpet9
   - first:
       213: -8592179035681369271
-    second: Torch
+    second: Door
   - first:
       213: 3409484098657124793
-    second: Torch2
+    second: Window
   - first:
       213: 8655266857921624352
     second: Torch3
@@ -271,7 +271,7 @@ TextureImporter:
       name: Ground3
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 112
         width: 16
         height: 16
@@ -334,8 +334,8 @@ TextureImporter:
       name: Ground2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 112
+        x: 64
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -460,8 +460,8 @@ TextureImporter:
       name: Ground5
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
+        x: 80
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -725,6 +725,48 @@ TextureImporter:
       bones: []
       spriteID: 44ea4c5bb67ae2350800000000000000
       internalID: 5993912235129613892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 101
+        width: 16
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94357abb0b272c880800000000000000
+      internalID: -8592179035681369271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b10dc739bbe05f20800000000000000
+      internalID: 3409484098657124793
       vertices: []
       indices: 
       edges: []
