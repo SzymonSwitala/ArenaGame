@@ -4,12 +4,15 @@ using DG.Tweening;
 public class Slime : Enemy
 {
     private Transform target;
+    [SerializeField] private HealthBar healthBar;
 
     protected override void Start()
     {
         base.Start();
         target = GameManager.Instance.player.transform;
         StartCoroutine(Move());
+        healthBar.SetBar(healthSystem.GetHealth());
+        healthBar.gameObject.SetActive(false);
     }
  
 
@@ -39,6 +42,13 @@ public class Slime : Enemy
 
         
     }
+    public override void GetDamage(int value)
+    {
+        base.GetDamage(value);
+        healthBar.UpdateBar(healthSystem.GetHealth());
+        healthBar.gameObject.SetActive(true);
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -47,7 +57,7 @@ public class Slime : Enemy
             Player player = collision.GetComponent<Player>();
             player.GetDamage(1);
             StartCoroutine(player.Knockback(1, 25, gameObject));
-        
+            transform.DOPause();
         }
     }
   

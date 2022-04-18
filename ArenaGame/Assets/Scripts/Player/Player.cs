@@ -5,19 +5,20 @@ public class Player : MonoBehaviour, IDamagable
 {
     private HealthSystem healthSystem;
     private Movement movement;
+    private Rigidbody2D rb;
+    private FlashEffect flashEffect;
     [SerializeField] private Aim aim;
     [SerializeField] private ShootingController shootingController;
     [SerializeField] private int healthPoints = 3;
-    FlashEffect flashEffect;
     [SerializeField] private HeartsSystem heartsSystem;
-    Rigidbody2D rigidbody2D;
+
     private void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        movement = GetComponent<Movement>();
         healthSystem = new HealthSystem(healthPoints);
-        flashEffect = GetComponent<FlashEffect>();
         heartsSystem.Refresh(healthPoints);
+        rb = GetComponent<Rigidbody2D>();
+        movement = GetComponent<Movement>();
+        flashEffect = GetComponent<FlashEffect>(); 
     }
     private void Update()
     {
@@ -43,16 +44,32 @@ public class Player : MonoBehaviour, IDamagable
         healthPoints = healthSystem.GetHealth();
         flashEffect.Flash();
         heartsSystem.Refresh(healthPoints);
+        if (healthSystem.GetHealth() <= 0)
+        {
+            Dead();
+
+        }
+    }
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+
+        Invoke("ShowEndScreen", 3);
+
 
     }
-    public IEnumerator Knockback(float duration,float power,GameObject obj)
+    private void ShowEndScreen()
+    {
+        GameManager.Instance.endScreen.SetActive(true);
+    }
+    public IEnumerator Knockback(float duration, float power, GameObject obj)
     {
         float timer = 0;
-        while (duration>timer)
+        while (duration > timer)
         {
             timer += Time.deltaTime;
             Vector2 direction = (obj.transform.position - this.transform.position).normalized;
-            rigidbody2D.AddForce(-direction*power,ForceMode2D.Force);
+            rb.AddForce(-direction * power, ForceMode2D.Force);
 
         }
 

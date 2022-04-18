@@ -1,20 +1,40 @@
-using System.Collections;
 using UnityEngine;
-
+using System.Collections;
 public class KingSlime : Enemy
 {
-    [SerializeField] Slime slime;
+
     private Transform target;
+    public HealthBar healthBar;
     [SerializeField] private Transform slimeSprites;
-    [SerializeField] private HealthBar healthBar;
     [SerializeField] private FlashEffect[] flashEffect;
+    [SerializeField] private GameObject slimeballPrefab;
+    public Animator animator;
     protected override void Start()
     {
         base.Start();
+
         target = GameManager.Instance.player.transform;
         healthBar.SetBar(healthPoints);
-      
-       // InvokeRepeating("SpawnSlimes", 1, 100);
+        StartCoroutine(Behaviour());
+
+    }
+
+    IEnumerator Behaviour()
+    {
+        while (animator.GetCurrentAnimatorStateInfo(0).IsName("Falling"))
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        GameManager.Instance.bossHealthBar.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        Shoot(0);
+        yield return new WaitForSeconds(2);
+        Shoot(30);
+
+
+        StartCoroutine(Behaviour());
+        yield return null;
+
     }
     public override void GetDamage(int value)
     {
@@ -22,6 +42,17 @@ public class KingSlime : Enemy
         healthBar.UpdateBar(healthSystem.GetHealth());
         flashEffect[0].Flash();
         flashEffect[1].Flash();
+        if (healthSystem.GetHealth() <= 0)
+        {
+            GameManager.Instance.timer.StopCountDown();
+            GameManager.Instance.bossHealthBar.gameObject.SetActive(false);
+        }
+    }
+    public override void Dead()
+    {
+        GameManager.Instance.endScreen.SetActive(true);
+        base.Start();
+
     }
     private void Update()
     {
@@ -35,13 +66,31 @@ public class KingSlime : Enemy
             slimeSprites.transform.localScale = new Vector3(1, 1, 1);
         }
     }
-
-    void SpawnSlimes()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 0; i < 3; i++)
+
+        if (collision.tag == "Player")
         {
-            Slime newSlime = Instantiate(slime, transform.position, Quaternion.identity);
-          
+            Player player = collision.GetComponent<Player>();
+            player.GetDamage(1);
+            StartCoroutine(player.Knockback(1, 25, gameObject));
+
         }
+    }
+    private void Shoot(int angle)
+    {
+        int amount = 6;
+        float spreadAngle = 60f;
+
+
+
+        for (int i = 0; i < amount; i++)
+        {
+
+
+            Instantiate(slimeballPrefab, transform.position, Quaternion.Euler(0, 0, (i * spreadAngle) - angle));
+
+        }
+
     }
 }

@@ -21,14 +21,10 @@ public class GameManager : MonoBehaviour
     }
     public Timer timer;
     public Player player;
-
+    public HealthBar bossHealthBar;
+    public GameObject endScreen;
     [SerializeField] private TextMeshProUGUI timerText;
-    private void Start()
-    {
-        timer.StartCountDown();
-   
-
-    }
+  
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

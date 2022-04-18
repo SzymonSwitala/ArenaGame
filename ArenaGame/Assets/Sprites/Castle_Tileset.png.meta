@@ -292,7 +292,7 @@ TextureImporter:
       name: Ground4
       rect:
         serializedVersion: 2
-        x: 80
+        x: 112
         y: 112
         width: 16
         height: 16
@@ -334,8 +334,8 @@ TextureImporter:
       name: Ground2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
+        x: 80
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -461,7 +461,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 80
-        y: 80
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -481,7 +481,7 @@ TextureImporter:
       name: Ground6
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 96
         width: 16
         height: 16
@@ -502,7 +502,7 @@ TextureImporter:
       name: Ground7
       rect:
         serializedVersion: 2
-        x: 80
+        x: 112
         y: 96
         width: 16
         height: 16

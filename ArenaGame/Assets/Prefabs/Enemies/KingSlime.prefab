@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7071689030014169646}
-  - component: {fileID: 7071689030014169647}
   - component: {fileID: 7071689030014169644}
   - component: {fileID: 7071689030014169633}
   - component: {fileID: 7071689030014169645}
+  - component: {fileID: 8805240744278995939}
   m_Layer: 7
   m_Name: KingSlime
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,42 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &7071689030014169647
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071689030014169632}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.39624864, y: 1.4726244}
-      - {x: -0.96837604, y: 1.3070011}
-      - {x: -1.4841757, y: 1.0312289}
-      - {x: -1.986284, y: 0.07765326}
-      - {x: -1.6957939, y: -1.1328392}
-      - {x: 0.8621459, y: -1.1752032}
-      - {x: 1.6477435, y: -1.1581581}
-      - {x: 1.9803334, y: -0.14474541}
-      - {x: 1.6754417, y: 0.76601577}
-      - {x: 1.139311, y: 1.260859}
-      - {x: 0.39247072, y: 1.4343561}
 --- !u!114 &7071689030014169644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,12 +49,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 25
-  slime: {fileID: 4701631930636030433, guid: b4f1840003f7f3943a395b04446c2e8d, type: 3}
-  slimeSprites: {fileID: 7071689030825576220}
   healthBar: {fileID: 0}
+  slimeSprites: {fileID: 7071689030825576220}
   flashEffect:
   - {fileID: 7071689030014169633}
   - {fileID: 7071689030014169645}
+  slimeballPrefab: {fileID: 1999062108946631043, guid: 4efaafb94ffba674dbf05224aafac875, type: 3}
+  animator: {fileID: 7071689031648667999}
 --- !u!114 &7071689030014169633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +86,27 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: 7a01744839a2ad440adf52010425d8b3, type: 2}
   spriteRenderer: {fileID: 7071689030825576221}
   duration: 0.1
+--- !u!50 &8805240744278995939
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071689030014169632}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7071689030636458270
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7071689030636458271}
   - component: {fileID: 7071689030636458268}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: KingSlime_shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7071689030825576220}
   - component: {fileID: 7071689030825576221}
-  - component: {fileID: 7071689030825576218}
   m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
@@ -288,25 +273,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7071689030825576218
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071689030825576223}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7071689031648667985
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,9 +284,11 @@ GameObject:
   - component: {fileID: 7071689031648667998}
   - component: {fileID: 7071689031648667996}
   - component: {fileID: 7071689031648667999}
+  - component: {fileID: 9219559991096339115}
+  - component: {fileID: 5542387887079547218}
   m_Layer: 7
   m_Name: KingSlime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,3 +379,52 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &9219559991096339115
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071689031648667985}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.39624864, y: 1.4726244}
+      - {x: -0.96837604, y: 1.3070011}
+      - {x: -1.4841757, y: 1.0312289}
+      - {x: -1.986284, y: 0.07765326}
+      - {x: -1.6957939, y: -1.1328392}
+      - {x: 0.8621459, y: -1.1752032}
+      - {x: 1.6477435, y: -1.1581581}
+      - {x: 1.9803334, y: -0.14474541}
+      - {x: 1.6754417, y: 0.76601577}
+      - {x: 1.139311, y: 1.260859}
+      - {x: 0.39247072, y: 1.4343561}
+--- !u!114 &5542387887079547218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071689031648667985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7415f62b4f4a454a8b6e438e79e67ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idamagableGameObject: {fileID: 7071689030014169632}
