@@ -6,9 +6,9 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private GameObject hitEffect;
-    
+    [SerializeField] private int damage;
 
-   
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         }
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<Enemy>().GetDamage(1);
+            collision.GetComponent<IDamagable>().GetDamage(damage);
         }
         Instantiate(hitEffect,transform.position,transform.rotation);
         DisableProjectile();

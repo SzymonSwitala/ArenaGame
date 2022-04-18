@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4701631930636030438}
   - component: {fileID: 4701631930636030433}
   - component: {fileID: 2899889626938584176}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.12}
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22afa88e261e87144a582af7b8e7b4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPoints: 3
 --- !u!50 &2899889626938584176
 Rigidbody2D:
   serializedVersion: 4
