@@ -9,13 +9,15 @@ public class Slime : Enemy
     protected override void Start()
     {
         base.Start();
-        target = GameManager.Instance.player.transform;
-        StartCoroutine(Move());
+        target = GameManager.Instance.player.transform;  
         healthBar.SetBar(healthSystem.GetHealth());
         healthBar.gameObject.SetActive(false);
     }
  
-
+    public void StartFollowTarget()
+    {
+        StartCoroutine(Move());
+    }
     IEnumerator Move()
     {
         float randomTimeBetweenJump = Random.Range(1, 3);
@@ -47,6 +49,12 @@ public class Slime : Enemy
         base.GetDamage(value);
         healthBar.UpdateBar(healthSystem.GetHealth());
         healthBar.gameObject.SetActive(true);
+
+    }
+    public override void Dead()
+    {
+        transform.DOPause();
+        base.Dead();
 
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -9,6 +9,8 @@ public class KingSlime : Enemy
     [SerializeField] private FlashEffect[] flashEffect;
     [SerializeField] private GameObject slimeballPrefab;
     public Animator animator;
+    public BossFightController bossFightController;
+   
     protected override void Start()
     {
         base.Start();
@@ -30,10 +32,18 @@ public class KingSlime : Enemy
         Shoot(0);
         yield return new WaitForSeconds(2);
         Shoot(30);
-
-
+        yield return new WaitForSeconds(1); 
+        Shoot(45);
+        yield return new WaitForSeconds(1);
+        animator.SetBool("Jump", true);
+        bossFightController.SpawnSlimes();
+        yield return new WaitForSeconds(6);
+        transform.position = GameManager.Instance.player.transform.position;
+        yield return new WaitForSeconds(1);
+        animator.SetBool("Jump", false);
         StartCoroutine(Behaviour());
         yield return null;
+
 
     }
     public override void GetDamage(int value)
@@ -93,4 +103,6 @@ public class KingSlime : Enemy
         }
 
     }
+
+
 }

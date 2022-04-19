@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39a5b50eb2b88c4e8aff33105c3b16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 25
+  healthPoints: 50
   healthBar: {fileID: 0}
   slimeSprites: {fileID: 7071689030825576220}
   flashEffect:
@@ -56,6 +56,7 @@ MonoBehaviour:
   - {fileID: 7071689030014169645}
   slimeballPrefab: {fileID: 1999062108946631043, guid: 4efaafb94ffba674dbf05224aafac875, type: 3}
   animator: {fileID: 7071689031648667999}
+  bossFightController: {fileID: 0}
 --- !u!114 &7071689030014169633
 MonoBehaviour:
   m_ObjectHideFlags: 0
