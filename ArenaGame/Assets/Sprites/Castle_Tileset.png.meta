@@ -126,6 +126,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -781,6 +782,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Carpet2: 2403724249865808194
+      Ground2: -6233175929489374028
+      Carpet7: -6056380807486736462
+      Window: 3409484098657124793
+      Wall9: 6907930559025317975
+      Carpet3: 8040196581939011165
+      Carpet5: -72156938504300551
+      Ground4: -103811761036468670
+      Door: -8592179035681369271
+      Castle_Tileset_5: 5993912235129613892
+      Carpet4: 7769453424612927293
+      Ground5: 5441223297315994465
+      Wall8: -4476022501703420924
+      Wall4: 8497245478536433127
+      Wall7: -3237895256271030841
+      Carpet8: -8025435653959805260
+      Carpet10: -8480404140891905064
+      Carpet9: 4938342473259674171
+      Wall2: 252018629521980368
+      Ground7: -6108889420429456849
+      Wall6: -2245393020145769824
+      Ground6: -3309781605116015348
+      Carpet: 5682393469540925955
+      Wall: -8633343456207233330
+      Ground: -8241409966307533
+      Wall3: 7000830544692389512
+      Ground3: 7171566500308783752
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

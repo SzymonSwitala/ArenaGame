@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour,IDamagable
 {
    [SerializeField] protected int healthPoints;
     protected HealthSystem healthSystem;
+
     protected virtual void Start()
     {
         healthSystem = new HealthSystem(healthPoints);

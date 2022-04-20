@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -256,6 +257,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      KingSlime-eyes-Sheet_4: 5771324085217948718
+      KingSlime-eyes-Sheet_3: -7278269165754251825
+      KingSlime-eyes-Sheet_0: -7006520606638382564
+      KingSlime-eyes-Sheet_2: 5224022786544382983
+      KingSlime-eyes-Sheet_1: 6872771121236893111
+      KingSlime-eyes-Sheet_5: 5467649272097471960
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

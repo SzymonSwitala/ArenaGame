@@ -84,6 +84,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -592,6 +593,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      HealthBar: -7121364002729366432
+      Slimeball: 7470323926208519351
+      HealthBarBorder: -8547006882314900296
+      Shadow: 5033880131319298381
+      Heart: 4684230318470576118
+      Arrow: 4069068877378456375
+      Fire4: -2176497188331930611
+      Fire2: -5552403342709201435
+      Fire_: -5618043830288613645
+      Fire: 4352752416563659992
+      Hit: 878484554209460550
+      Dust4: 5743850740615162147
+      Dust3: 3275762319352954006
+      Dust2: -1080171575532752959
+      Hit3: -5434525076162517053
+      Dagger: 3214705320427765192
+      Fire3: 5381805849114583260
+      Dust: -7200635060467484838
+      Hit2: -276865135857942692
+      Hit4: 6137572362083837461
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

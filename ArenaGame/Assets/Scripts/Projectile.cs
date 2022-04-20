@@ -30,27 +30,24 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Untagged")
+        IDamagable damagable = collision.GetComponent<IDamagable>();
+        if (damagable != null)
         {
-            return;
+            damagable.GetDamage(damage);
         }
 
-        if (collision.tag == "Enemy")
-        {
-            collision.GetComponent<IDamagable>().GetDamage(damage);
-        }
-
-        if (collision.tag == "Player")
-        {
-            collision.GetComponent<IDamagable>().GetDamage(damage);
-            StartCoroutine(collision.GetComponent<Player>().Knockback(1, 25, gameObject));
-        }
-        if (hitEffect!=null)
+        if (hitEffect != null)
         {
             Instantiate(hitEffect, transform.position, transform.rotation);
 
         }
+        if (collision.tag=="Player")
+        {
+         
+            StartCoroutine(collision.GetComponent<Player>().Knockback(1, 25, gameObject));
+        }
         DisableProjectile();
+
     }
 
 }

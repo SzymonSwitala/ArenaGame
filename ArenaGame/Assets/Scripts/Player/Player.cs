@@ -42,7 +42,7 @@ public class Player : MonoBehaviour, IDamagable
 
         healthSystem.Damage(value);
         healthPoints = healthSystem.GetHealth();
-        flashEffect.Flash();
+      //  flashEffect.Flash();
         heartsSystem.Refresh(healthPoints);
         if (healthSystem.GetHealth() <= 0)
         {
@@ -67,6 +67,7 @@ public class Player : MonoBehaviour, IDamagable
         float timer = 0;
         while (duration > timer)
         {
+            
             timer += Time.deltaTime;
             Vector2 direction = (obj.transform.position - this.transform.position).normalized;
             rb.AddForce(-direction * power, ForceMode2D.Force);
