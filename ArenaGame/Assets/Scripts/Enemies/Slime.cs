@@ -10,7 +10,7 @@ public class Slime : Enemy
     {
         base.Start();
         target = GameManager.Instance.player.transform;  
-        healthBar.SetBar(healthSystem.GetHealth());
+        healthBar.SetMaxHealth(healthSystem.GetHealth());
         healthBar.gameObject.SetActive(false);
     }
  
@@ -47,7 +47,7 @@ public class Slime : Enemy
     public override void GetDamage(int value)
     {
         base.GetDamage(value);
-        healthBar.UpdateBar(healthSystem.GetHealth());
+        healthBar.SetHealth(healthSystem.GetHealth());
         healthBar.gameObject.SetActive(true);
 
     }
@@ -55,7 +55,7 @@ public class Slime : Enemy
     {
         transform.DOPause();
         base.Dead();
-
+        transform.DOPause();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -60,7 +60,7 @@ public class Player : MonoBehaviour, IDamagable
     }
     private void ShowEndScreen()
     {
-        GameManager.Instance.endScreen.SetActive(true);
+       // GameManager.Instance.endScreen.SetActive(true);
     }
     public IEnumerator Knockback(float duration, float power, GameObject obj)
     {

@@ -1,20 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField]private Slider slider;
-   
-    public void SetBar(int health)
+    [SerializeField] private TextMeshProUGUI nameText;
+    public void SetMaxHealth(int health)
     {
      
         slider.maxValue = health;
         slider.value = health;
      
     }
-    public void UpdateBar(int health)
+    public void SetHealth(int health)
     {
         slider.value = health;
 
     } 
+    public void SetName(string name)
+    {
+        nameText.text = name;
+    }
+
 }
