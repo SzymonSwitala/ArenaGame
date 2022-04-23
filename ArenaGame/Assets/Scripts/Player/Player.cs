@@ -14,11 +14,11 @@ public class Player : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        healthSystem = new HealthSystem(healthPoints);
-        heartsSystem.Refresh(healthPoints);
+        healthSystem = new HealthSystem(healthPoints);   
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<Movement>();
-        flashEffect = GetComponent<FlashEffect>(); 
+        flashEffect = GetComponent<FlashEffect>();
+        heartsSystem.Refresh(healthPoints);
     }
     private void Update()
     {
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour, IDamagable
 
         healthSystem.Damage(value);
         healthPoints = healthSystem.GetHealth();
-      //  flashEffect.Flash();
+        flashEffect.Flash();
         heartsSystem.Refresh(healthPoints);
         if (healthSystem.GetHealth() <= 0)
         {
@@ -53,21 +53,14 @@ public class Player : MonoBehaviour, IDamagable
     private void Dead()
     {
         gameObject.SetActive(false);
-
-        Invoke("ShowEndScreen", 3);
-
-
-    }
-    private void ShowEndScreen()
-    {
-       // GameManager.Instance.endScreen.SetActive(true);
-    }
+        MenusManager.ChangeMenu<GameOverScreen>(true);
+    } 
     public IEnumerator Knockback(float duration, float power, GameObject obj)
     {
         float timer = 0;
         while (duration > timer)
         {
-            
+
             timer += Time.deltaTime;
             Vector2 direction = (obj.transform.position - this.transform.position).normalized;
             rb.AddForce(-direction * power, ForceMode2D.Force);

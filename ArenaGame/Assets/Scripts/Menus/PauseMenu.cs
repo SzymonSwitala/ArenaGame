@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : Menu
 {
-    public void ContinueButton()
+    [SerializeField] private Button backButton;
+    [SerializeField] private Button backToMainMenuButton;
+    [SerializeField] private Button optionsButton;
+    private void Start()
     {
-
+        backButton.onClick.AddListener(() => MenusManager.ShowLastMenu());
+        backToMainMenuButton.onClick.AddListener(() => MenusManager.ChangeScene("MainMenu"));
+        optionsButton.onClick.AddListener(() => MenusManager.ChangeMenu<OptionsMenu>(true));
     }
-    public void OptionsButton()
-    {
+    private void OnEnable() => Time.timeScale = 0;
 
-    }
-    public void BackToManinMenuButton()
-    {
-
-    }
+    private void OnDisable() => Time.timeScale = 1;
 }

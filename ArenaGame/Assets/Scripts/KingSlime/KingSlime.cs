@@ -10,12 +10,14 @@ public class KingSlime : MonoBehaviour
     private HealthSystem healthSystem;
     [SerializeField] private Transform[] jumpPositions;
     private Animator animator;
-  
+    private GameUI gameUI;
+    [SerializeField] private FlashEffect flashEffect;
     private void Start()
     {
+        gameUI = MenusManager.GetMenu<GameUI>();
         player = GameManager.Instance.player.transform;
         healthSystem = new HealthSystem(75);
-       // GameManager.Instance.bossHealthBar.SetMaxHealth(healthSystem.GetHealth());
+        gameUI.bossHealthBar.SetMaxHealth(healthSystem.GetHealth());
         animator = GetComponent<Animator>();
     }
     public void Shoot(int angle)
@@ -30,13 +32,13 @@ public class KingSlime : MonoBehaviour
     }
     public Vector2 GetRandomJumpPosition()
     {
-        int randomIndex = Random.Range(0,jumpPositions.Length);
+        int randomIndex = Random.Range(0, jumpPositions.Length);
         Transform randomPos = jumpPositions[randomIndex];
         return randomPos.position;
     }
-   public void SpawnSlimes()
+    public void SpawnSlimes()
     {
-       Slime slime= Instantiate(slimePrefab,transform.position,Quaternion.identity).GetComponent<Slime>();
+        Slime slime = Instantiate(slimePrefab, transform.position, Quaternion.identity).GetComponent<Slime>();
         slime.StartFollowTarget();
     }
     private void LookAtPlayer()
@@ -47,14 +49,15 @@ public class KingSlime : MonoBehaviour
         }
         else
         {
-           transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
     public void GetDamage(int value)
     {
         healthSystem.Damage(value);
-    //    GameManager.Instance.bossHealthBar.SetHealth(healthSystem.GetHealth());
+        gameUI.bossHealthBar.SetHealth(healthSystem.GetHealth());
+        flashEffect.Flash();
         if (healthSystem.GetHealth() <= 0)
         {
             Dead();
@@ -63,6 +66,6 @@ public class KingSlime : MonoBehaviour
 
     private void Dead()
     {
-        animator.SetBool("isDead",true); 
+        animator.SetBool("isDead", true);
     }
 }

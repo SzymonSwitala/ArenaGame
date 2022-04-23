@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class KingSlimeStart : StateMachineBehaviour
 {
- 
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -18,8 +18,10 @@ public class KingSlimeStart : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       // GameManager.Instance.bossHealthBar.gameObject.SetActive(true);
-        //GameManager.Instance.timer.StartCountDown();
+        GameUI gameUI = MenusManager.GetMenu<GameUI>();
+        gameUI.bossHealthBar.gameObject.SetActive(true);
+        gameUI.timer.StartCountDown();
+
 
     }
 }

@@ -22,7 +22,28 @@ public class GameManager : MonoBehaviour
    
     public Player player;
 
- 
+    private void Update()
+    {
+        Inputs();
+    }
+
+    private void Inputs()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+           
+            if (MenusManager.GetCurrentMenu()==MenusManager.GetMenu<PauseMenu>())
+            {    
+                MenusManager.ChangeMenu<GameUI>(true);
+            }
+            else
+            { 
+                MenusManager.ChangeMenu<PauseMenu>(true);
+            }
+          
+           
+        }
+    }
 
 
 
